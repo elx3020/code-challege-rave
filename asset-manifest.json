@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/code-challege-rave/static/css/main.3941edfb.css",
+    "main.css": "/code-challege-rave/static/css/main.9bc5c852.css",
     "main.js": "/code-challege-rave/static/js/main.1f027175.js",
     "static/js/787.a014bf68.chunk.js": "/code-challege-rave/static/js/787.a014bf68.chunk.js",
     "static/media/logo.svg": "/code-challege-rave/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/code-challege-rave/index.html",
-    "main.3941edfb.css.map": "/code-challege-rave/static/css/main.3941edfb.css.map",
+    "main.9bc5c852.css.map": "/code-challege-rave/static/css/main.9bc5c852.css.map",
     "main.1f027175.js.map": "/code-challege-rave/static/js/main.1f027175.js.map",
     "787.a014bf68.chunk.js.map": "/code-challege-rave/static/js/787.a014bf68.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3941edfb.css",
+    "static/css/main.9bc5c852.css",
     "static/js/main.1f027175.js"
   ]
 }
