@@ -1,0 +1,40 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  width: 480px;
+}
+
+.card-container p {
+  font-size: 11px;
+}
+
+.card-container > figure {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card-footer {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1vw;
+  background-color: white;
+  width: 100%;
+}
+
+.description-container > h2 {
+  margin-bottom: 10px;
+}
+
+.scan-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qrcode-container {
+  max-width: 80px;
+}
