@@ -14,22 +14,18 @@ function WebApp() {
   const [data, setData] = useState(initialState);
 
   async function getLastEntry() {
-    const lastEntry = await (
-      await fetch("https://6d5f7g8yhiuf7g8uybif6r57vtu.s3.amazonaws.com/count")
-    )
-      .json()
-      .then((data) => data);
-    setData({ ...data, index: lastEntry.index });
-  }
-
-  async function getLastItem() {
     try {
-      const lastItem = await (
-        await fetch(
-          `https://6d5f7g8yhiuf7g8uybif6r57vtu.s3.amazonaws.com/${data.index}`
-        )
+      // get index
+      const lastEntryIndex = await fetch(
+        "https://6d5f7g8yhiuf7g8uybif6r57vtu.s3.amazonaws.com/count"
       )
-        .json()
+        .then((res) => res.json())
+        .then((data) => data);
+      // get data
+      const lastItem = await fetch(
+        `https://6d5f7g8yhiuf7g8uybif6r57vtu.s3.amazonaws.com/${lastEntryIndex.index}`
+      )
+        .then((res) => res.json())
         .then((data) => data);
       setData({
         ...data,
@@ -37,19 +33,15 @@ function WebApp() {
         number: lastItem.index,
         date: lastItem.time,
         imageUrl: lastItem.imageUrl,
+        index: lastEntryIndex.index,
       });
     } catch (err) {
       console.error(err);
     }
   }
 
-  //   useEffect(() => {
-
-  //   }, []);
-
   useEffect(() => {
     getLastEntry();
-    getLastItem();
   }, []);
 
   return (
