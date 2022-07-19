@@ -1,25 +1,35 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "./cardStyle.css";
 function Card(props) {
-  const { cardTitle, imageUrl, description, number, date } = props;
+  const { cardTitle } = props;
+  const { imageUrl, description, number, date, index } = props.data;
+
+  const [qrCode, setQrCode] = useState(null);
 
   const qrRef = useRef();
 
   const formatDate = new Date(date);
 
-  useEffect(() => {
-    new window.QRCode(qrRef.current, {
-      text: imageUrl,
-      width: 128,
-      height: 128,
-      colorDark: "#000000",
-      colorLight: "#ffffff",
-    });
-    // setQrCode(
+  function generateQrCode() {
+    if (imageUrl === "") return;
 
-    // );
-  }, []);
+    if (qrCode === null) {
+      const qrCodeInstance = new window.QRCode(qrRef.current, {
+        text: imageUrl,
+        width: 128,
+        height: 128,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+      });
+
+      setQrCode(qrCodeInstance);
+    }
+  }
+
+  useEffect(() => {
+    generateQrCode();
+  }, [imageUrl]);
 
   return (
     <article className="card-container">
@@ -30,7 +40,7 @@ function Card(props) {
       <div className="card-footer">
         <div className="description-container">
           <h2>{description}</h2>
-          <h3>#{number}</h3>
+          <h3>#{index}</h3>
           <p>Created {formatDate.toUTCString()}</p>
         </div>
         <div className="scan-wrapper">
